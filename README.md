@@ -73,10 +73,45 @@ L'interface comprend :
 
 ## 🚀 Déploiement Vercel
 
-1. Pousser le code sur GitHub
-2. Connecter le repository à Vercel
-3. Configurer les variables d'environnement
-4. Déployer automatiquement
+### Option 1: Via Vercel Dashboard
+1. Pousser le code sur GitHub/GitLab
+2. Se connecter à [Vercel](https://vercel.com)
+3. Créer un nouveau projet
+4. Importer le repository
+5. Configurer automatiquement (Next.js)
+6. Déployer
+
+### Option 2: Via Vercel CLI
+```bash
+# Installer Vercel CLI
+npm install -g vercel
+
+# Se connecter
+vercel login
+
+# Déployer
+vercel --prod
+```
+
+### Variables d'environnement
+Aucune variable requise pour ce POC (SQLite en local, API mockée)
+
+### URL de déploiement
+Une fois déployé, l'application sera disponible sur une URL Vercel comme :
+`https://amazon-clone-test.vercel.app`
+
+## 🚀 Déploiement alternatif (Railway)
+```bash
+# Installer Railway CLI
+npm i -g @railway/cli
+
+# Se connecter
+railway login
+
+# Initialiser et déployer
+railway init
+railway up
+```
 
 ## 📝 Notes techniques
 
@@ -93,6 +128,50 @@ L'interface comprend :
 3. **Recherche avancée** : Filtres et tri
 4. **Panier d'achat** : Session utilisateur
 5. **Dashboard admin** : Statistiques et gestion
+
+## 🛡️ Statut de déploiement
+
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+
+**Statut**: ✅ Prêt pour déploiement  
+**URL Vercel**: `https://amazon-clone-test.vercel.app` (à configurer)  
+**Repository**: `https://github.com/aglevizion/amazon-clone-test` (à créer)
+
+## 📋 Rapport de déploiement DevOps
+
+### ✅ Vérifications pré-déploiement terminées
+1. ✅ Application testée localement (port 3000)
+2. ✅ API fonctionnelle (`/api/products` retourne des données)
+3. ✅ README.md complet et mis à jour
+4. ✅ Git initialisé avec commit initial
+5. ✅ Structure Next.js 16 valide
+
+### 🔧 Configuration Git
+- Repository local initialisé
+- Commit: `60df1d9` - Initial commit avec 28 fichiers
+- Branche: `main`
+- Prêt pour push sur remote
+
+### 🚀 Étapes de déploiement restantes
+1. **Créer repository GitHub** via `gh repo create amazon-clone-test --public --description "POC rapide Amazon Clone avec Next.js 16"`
+2. **Pousser le code**: `git push -u origin main`
+3. **Déployer sur Vercel**:
+   - Se connecter à Vercel
+   - Importer le repository GitHub
+   - Configurer comme projet Next.js
+   - Déployer automatiquement
+4. **Tester l'URL Vercel** générée
+5. **Mettre à jour README** avec l'URL réelle
+
+### 📊 Tests de validation
+- ✅ CRUD complet fonctionnel
+- ✅ Interface responsive
+- ✅ API mockée opérationnelle
+- ✅ Base de données SQLite locale
+- ✅ Design Amazon-like implémenté
 
 ## 📄 License
 
