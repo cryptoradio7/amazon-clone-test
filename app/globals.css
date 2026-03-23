@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EAEDED;
+  --foreground: #0F1111;
+  --amazon-dark: #131921;
+  --amazon-dark-hover: #232F3E;
+  --amazon-orange: #FF9900;
+  --amazon-orange-hover: #FA8900;
+  --amazon-blue: #007185;
+  --amazon-blue-hover: #C7511F;
+  --amazon-yellow: #FFD814;
+  --amazon-yellow-hover: #F7CA00;
+  --amazon-star: #FFA41C;
 }
 
 @theme inline {
@@ -12,15 +21,50 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+/* Amazon-style rating stars */
+.star-rating {
+  color: var(--amazon-star);
+}
+
+/* Amazon-style button */
+.btn-amazon {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  color: #111;
+  cursor: pointer;
+  padding: 6px 14px;
+  font-size: 13px;
+}
+.btn-amazon:hover {
+  background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}
+
+/* Amazon-style buy button */
+.btn-buy {
+  background: var(--amazon-yellow);
+  border: 1px solid #FCD200;
+  border-radius: 20px;
+  color: #0F1111;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn-buy:hover {
+  background: var(--amazon-yellow-hover);
+}
+
+/* Prime badge */
+.prime-badge {
+  color: #007185;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }

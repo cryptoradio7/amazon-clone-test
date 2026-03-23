@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f5f5f5"/>
+  <rect x="145" y="40" width="110" height="220" rx="15" fill="#2d2d2d"/>
+  <rect x="152" y="50" width="96" height="190" rx="8" fill="#1a1a2e"/>
+  <circle cx="200" cy="255" r="4" fill="#555"/>
+  <rect x="185" y="45" width="30" height="6" rx="3" fill="#1a1a2e"/>
+  <circle cx="200" cy="300" r="30" fill="#c4a35a" opacity="0.3"/>
+  <text x="200" y="340" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#333">iPhone 15 Pro Max</text>
+  <text x="200" y="365" text-anchor="middle" font-family="Arial" font-size="12" fill="#888">Titane naturel</text>
+</svg>

@@ -33,21 +33,18 @@ export default function ProductList() {
   }
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this product?')) return
-    
+    if (!confirm('Supprimer ce produit ?')) return
+
     try {
       const response = await fetch(`/api/products/${id}`, {
         method: 'DELETE'
       })
-      
+
       if (response.ok) {
         setProducts(products.filter(p => p.id !== id))
-        alert('Product deleted successfully!')
-      } else {
-        alert('Failed to delete product')
       }
-    } catch (err) {
-      alert('Error deleting product')
+    } catch {
+      // silent fail for POC
     }
   }
 
@@ -57,44 +54,56 @@ export default function ProductList() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center py-12">
-        <div className="text-lg text-gray-600">Loading products...</div>
+      <div className="flex justify-center items-center py-16">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-3 border-[#FF9900] border-t-transparent rounded-full animate-spin" />
+          <span className="text-sm text-[#565959]">Chargement des produits...</span>
+        </div>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-        <p className="text-red-700">Error: {error}</p>
-        <button
-          onClick={fetchProducts}
-          className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-        >
-          Retry
-        </button>
+      <div className="bg-white border border-[#D5D9D9] rounded-sm p-6 text-center">
+        <p className="text-[#B12704] font-bold mb-2">Erreur de chargement</p>
+        <p className="text-sm text-[#565959] mb-4">{error}</p>
+        <button onClick={fetchProducts} className="btn-buy px-6">Réessayer</button>
       </div>
     )
   }
 
   if (products.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="text-gray-500 text-lg mb-4">No products found</div>
-        <p className="text-gray-400">Add your first product using the "Add Product" button above.</p>
+      <div className="bg-white border border-[#D5D9D9] rounded-sm p-12 text-center">
+        <svg className="w-16 h-16 mx-auto text-[#D5D9D9] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+        <p className="text-lg font-bold text-[#0F1111] mb-1">Aucun produit</p>
+        <p className="text-sm text-[#565959]">Ajoutez votre premier produit avec le bouton &quot;+ Vendre&quot; ci-dessus.</p>
       </div>
     )
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onDelete={handleDelete}
-        />
-      ))}
-    </div>
+    <>
+      {/* Results count */}
+      <div className="mb-3">
+        <span className="text-sm text-[#565959]">
+          1-{products.length} sur {products.length} résultats
+        </span>
+      </div>
+
+      {/* Product grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[1px] bg-[#DDD]">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onDelete={handleDelete}
+          />
+        ))}
+      </div>
+    </>
   )
 }

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f5f5f5"/>
+  <path d="M80,80 L320,80 L320,240 L80,240 Z" fill="#2d2d2d" rx="8"/>
+  <rect x="90" y="88" width="220" height="145" fill="#1a1a2e"/>
+  <path d="M60,248 L340,248 L350,270 L50,270 Z" fill="#c0c0c0"/>
+  <rect x="170" y="250" width="60" height="8" rx="2" fill="#aaa"/>
+  <text x="200" y="320" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#333">MacBook Air M3</text>
+  <text x="200" y="345" text-anchor="middle" font-family="Arial" font-size="12" fill="#888">Minuit</text>
+</svg>
